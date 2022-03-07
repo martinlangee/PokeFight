@@ -1,4 +1,4 @@
-const fs = require('fs')
+const fs = require('fs');
 
 const getPokemons = () => {
     return JSON.parse(fs.readFileSync('./pokedex.json', 'utf-8'))

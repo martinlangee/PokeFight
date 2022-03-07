@@ -1,10 +1,12 @@
 const express = require("express");
+var cors = require('cors');
 const { StatusCodes } = require("http-status-codes");
 const { getPokemons, getPokemonById, getPokemonInfo } = require("./controller");
 
 const pokemon = express.Router({ mergeParams: true });
 
-pokemon.use(express.json()); // => req.body
+pokemon.use(cors());
+pokemon.use(express.json()); // => req.body 
 
 pokemon
     .get('', (req, res) => {
