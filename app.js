@@ -7,7 +7,7 @@ const pokemonRouter = require("./pokemon");
 app.use('/pokemon', pokemonRouter);
 
 app.use((req, res, next) => {
-    res.status(StatusCodes.OK).send('Martin\'s PokeFight API is working ...');
+    res.status(StatusCodes.OK).send('Martin\'s PokeFight API is listening ...\nSpecify "\pokemon\:id" to get a pokemon\'s data.\nSpecify "\pokemon\:id\:(<name>|<type>|<base>)" to get a pokemon\'s info.');
     next(req, res);
 });
 
