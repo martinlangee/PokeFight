@@ -9,8 +9,8 @@ app.use('/pokemon', pokemonRouter);
 app.use((req, res, next) => {
     res.status(StatusCodes.OK).send(
         `<h1>Martin\'s PokeFight API is listening ...</h1>
-         <p>Specify "\pokemon\:id" to get a pokemon\'s data.</p>
-         <p>Specify "\pokemon\:id\:(;&lt;name;&gt;|;&lt;type&gt;|;&lt;base&gt;)" to get a pokemon\'s info.')</p>`);
+         <p>Specify "\\pokemon\\:id" to get a pokemon\'s data.</p>
+         <p>Specify "\\pokemon\\:id\\:(;&lt;name;&gt;|;&lt;type&gt;|;&lt;base&gt;)" to get a pokemon\'s info.')</p>`);
     next(req, res);
 });
 
