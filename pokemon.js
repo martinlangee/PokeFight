@@ -1,13 +1,14 @@
 const express = require("express");
 var cors = require('cors');
 const { StatusCodes } = require("http-status-codes");
-const { getPokemons, getPokemonById, getPokemonInfo } = require("./controller");
+const { getPokemons, getPokemonById, getPokemonInfo, getPokemonImageUrl } = require("./controller");
 
 const pokemon = express.Router({ mergeParams: true });
 
 pokemon.use(cors());
 pokemon.use(express.json()); // => req.body 
 
+// handling the "/pokemon" routes
 pokemon
     .get('', (req, res) => {
         console.log('GET /pokemon');
@@ -26,6 +27,13 @@ pokemon
         const infoData = getPokemonInfo(id, info);
         if (info) res.status(StatusCodes.OK).json(infoData)
         else res.status(StatusCodes.NOT_FOUND).send(`Requested resource with id = ${id} and info = ${infoData} not found`);
+    })
+    .get('/image/:id', (req, res) => {
+        const { id } = req.params;
+        console.log(`GET /pokemon/image/${id}`);
+        const imageUrl = getPokemonImageUrl(id);
+        if (info) res.status(StatusCodes.OK).json(imageUrl)
+        else res.status(StatusCodes.NOT_FOUND).send(`Requested image URL resource with id = ${id} not found`);
     })
     .use((err, req, res) => {
         res.status(StatusCodes.NOT_FOUND).send('Requested resource not found');

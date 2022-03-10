@@ -29,6 +29,15 @@
                 "<node_internals>/**"
             ],
             "program": "${workspaceFolder}/app.js"
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Direct launch controller.js",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "program": "${workspaceFolder}/controller.js"
         }
     ]
 }
