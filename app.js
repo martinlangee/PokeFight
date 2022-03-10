@@ -11,7 +11,8 @@ app.use((req, res, next) => {
         `<h1>Martin\'s PokeFight API is listening ...</h1>
          <p>Specify "/pokemon" to get all pokemon\'s data.</p>
          <p>Specify "/pokemon/:id" to get a specific pokemon\'s data.</p>
-         <p>Specify "/pokemon/:id/:(&lt;name&gt;|&lt;type&gt;|&lt;base&gt;)" to get a specific pokemon\'s info.</p>`);
+         <p>Specify "/pokemon/:id/:(&lt;name&gt;|&lt;type&gt;|&lt;base&gt;)" to get a specific pokemon\'s info.</p>
+         <p>Specify "/pokemon/image/:id/:to get a pokemon\'s SVG image</p>`);
     next(req, res);
 });
 
