@@ -7,13 +7,6 @@ describe('Controller', async() => {
             assert.equal(controller.getPokemons().length, 809);
         });
     });
-    describe('getPokemonImage', () => {
-        it('should return the SVG image URL for ..../123.svg', () => {
-            controller.getPokemonImageUrl(123).then(imgUrl => {
-                assert.equal(imgUrl, 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/123.svg');
-            });
-        });
-    });
     describe('getPokemonById', () => {
         it('should return correct english names', () => {
             assert.equal(controller.getPokemonById(24).name.english, 'Arbok');
@@ -23,7 +16,7 @@ describe('Controller', async() => {
             assert.equal(controller.getPokemonById(794).name.english, 'Buzzwole');
         });
     });
-    describe('getPokemonByInfo', () => {
+    describe('getPokemonById', () => {
         it('should return correct data fields', () => {
             assert.equal(controller.getPokemonById(24).name.english, 'Arbok');
             assert.equal(controller.getPokemonById(95).type[0], 'Rock');
@@ -31,6 +24,7 @@ describe('Controller', async() => {
             assert.equal(controller.getPokemonById(234).name.french, 'Cerfrousse');
             assert.equal(controller.getPokemonById(454).type[1], 'Fighting');
             assert.equal(controller.getPokemonById(794).base["Sp. Defense"], 53);
+            assert.equal(controller.getPokemonById(376).imageUrl, "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/376.svg");
         });
     });
 });

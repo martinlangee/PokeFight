@@ -8,23 +8,9 @@ const getPokemons = () => {
 
 const getPokemonById = (id) => {
     id = Number(id);
-    return getPokemons().find(el => el.id === id);
+    let pokemon = getPokemons().find(el => el.id === id);
+    pokemon['imageUrl'] = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${id}.svg`;
+    return pokemon;
 }
 
-const getPokemonInfo = (id, info) => {
-    return getPokemonById(id)[info];
-}
-
-const getPokemonImageUrl = async(id) => {
-    var url = `https://pokeapi.co/api/v2/pokemon/${id}`;
-    try {
-        const resp = await axios.get(url);
-        return resp.data.sprites.other.dream_world.front_default;
-    } catch (error) {
-        console.log(error);
-    }
-}
-
-//const img = getPokemonImageUrl(123);
-
-module.exports = { getPokemons, getPokemonById, getPokemonInfo, getPokemonImageUrl };
+module.exports = { getPokemons, getPokemonById };
